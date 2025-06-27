@@ -1,15 +1,14 @@
-/* src/app.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --color-primary: #3b82f6; /* Blue 500 */
-    --color-primary-dark: #2563eb; /* Blue 600 */
-    --color-accent: #8b5cf6; /* Violet 500 */
-    --color-bg: #f8fafc; /* Slate 50 */
+    --color-primary: #3b82f6; 
+    --color-primary-dark: #2563eb; 
+    --color-accent: #8b5cf6; 
+    --color-bg: #f8fafc; 
     --color-surface: #ffffff;
-    --color-text: #1e293b; /* Slate 800 */
-    --color-text-light: #64748b; /* Slate 500 */
-    --color-border: #e2e8f0; /* Slate 200 */
+    --color-text: #1e293b; 
+    --color-text-light: #64748b;
+    --color-border: #e2e8f0; 
     --color-success: #22c55e;
     --color-error: #ef4444;
     --font-family: 'Poppins', sans-serif;
@@ -20,11 +19,11 @@
 }
 
 [data-theme="dark"] {
-    --color-bg: #1e293b; /* Slate 800 */
-    --color-surface: #334155; /* Slate 700 */
-    --color-text: #f1f5f9; /* Slate 100 */
-    --color-text-light: #94a3b8; /* Slate 400 */
-    --color-border: #475569; /* Slate 600 */
+    --color-bg: #1e293b;
+    --color-surface: #334155;
+    --color-text: #f1f5f9; 
+    --color-text-light: #94a3b8; 
+    --color-border: #475569; 
 }
 
 * {
@@ -244,7 +243,7 @@ body {
 @media (max-width: 600px) {
     body {
         padding: 0;
-        align-items: flex-start; /* Align to top on small screens */
+        align-items: flex-start;  
     }
     .main-container {
         margin: 0;
