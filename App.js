@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Your CSS file
+import './App.css'; 
 
-// The base URL for your FastAPI backend API calls
 const API_BASE_URL = "http://127.0.0.1:8000/api";
-
-// Story data is now defined directly in the frontend
 const STORY_DATA = {
     genres: [
         "Fantasy", "Sci-Fi", "Mystery", "Romance", "Horror",
@@ -20,7 +17,6 @@ const STORY_DATA = {
 };
 
 function App() {
-  // The storyData state is initialized directly with the constant
   const [storyData, setStoryData] = useState(STORY_DATA);
   
   const [formValues, setFormValues] = useState({ genres: "", themes: "", character_types: "" });
@@ -28,16 +24,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState(null);
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
-
-  // The useEffect hook for fetching story data is NO LONGER NEEDED and has been removed.
-
-  // Handle dark mode toggling
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  // Function to show a temporary notification
   const showNotification = (message, type = "info") => {
     setNotification({ message, type });
     setTimeout(() => setNotification(null), 2500);
