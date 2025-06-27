@@ -5,21 +5,17 @@ from datetime import datetime
 import google.generativeai as genai
 
 app = FastAPI()
-
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+    "http://localhost",
+    "http://localhost:3000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Gemini AI Configuration
 GEMINI_API_KEY = "AIzaSyCliZoTatOYM6Y0DnzCjG_lJ50x57qyDYU"
 genai.configure(api_key=GEMINI_API_KEY)
 
@@ -61,7 +57,6 @@ async def generate_ai_story(request: Request):
         theme_selection = data.get('themes', [])
         character_selection = data.get('character_types', [])
 
-        # Strict validation: all three must be selected
         if not all([genre_selection, theme_selection, character_selection]):
             raise HTTPException(
                 status_code=400,
@@ -86,8 +81,6 @@ async def generate_ai_story(request: Request):
         }
         return JSONResponse(content=response)
     except HTTPException as http_exc:
-        # Re-raise HTTP exceptions to be handled by FastAPI
         raise http_exc
     except Exception as e:
-        # Catch any other unexpected errors
         raise HTTPException(status_code=500, detail=f"An internal error occurred: {str(e)}")
